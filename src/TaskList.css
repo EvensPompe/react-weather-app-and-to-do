@@ -1,0 +1,20 @@
+.list{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.list div{
+    width:50%;
+    height: inherit;
+    display: inline;
+}
+
+.list div:first-child{
+    background-color: rgb(0, 160, 0);
+    border: rgb(0, 128, 0) 2px solid;
+}
+
+.list div:last-child{
+    background-color: rgb(160, 0, 0);
+    border: rgb(128, 0, 0) 2px solid;
+}
