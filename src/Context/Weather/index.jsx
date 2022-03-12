@@ -1,16 +1,16 @@
-import { createContext, useReducer} from "react";
+import { createContext, useReducer } from "react";
 import { type } from "../weather.js";
 
 
 const initialState = {
     weather: {},
-    apiKey: '2b489317a14641c304d13adc86e2704f',
+    apiKey: process.env.API_KEY || '',
     city: '',
     show: false
 }
 
 const reducer = (state, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case type.getWeather: {
             const weather = action.payload;
             return {
@@ -34,7 +34,7 @@ const reducer = (state, action) => {
 
 export const WeatherContext = createContext();
 
-export const WeatherProvider = ({children}) => {
+export const WeatherProvider = ({ children }) => {
     const value = useReducer(reducer, initialState);
 
     return <WeatherContext.Provider value={value}>{children}</WeatherContext.Provider>
